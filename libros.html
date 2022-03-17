@@ -11,21 +11,19 @@
 </head>
 <body>
     <header>
-
     </header>
-    <nav>
-        <button onclick="apiManga()"><< ApiManga</button>
-        <button onclick="sortuLiburuak()">Sortu</button>
-        <button onclick="apiManga()">Next >></button>
-        <button onclick="nyt()">pruebaNYT</button>
+    <nav id="navLibros">
+        <button onclick="window.open('index.html', '_self')" id="goBack"class="btn-bootstrap"><< Go Back!!</button>
     </nav>
     <main>
-        <section id="cajaMadre">
-                <img src="" alt="">
+        <section id="cajaMadre">           
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <p>Gaizka-k egindakoa!!</p>
+    </footer>
     <script src="./js/config.js"></script>
+    <script src="./js/orokorra.js"></script>
     <script src="./js/libros.js"></script>
     
     <!--
@@ -33,3 +31,10 @@
     -->
 </body>
 </html>
+
+<!--
+<button onclick="sortuLiburuak()">Sortu</button>
+<button onclick="apiManga()">Next >></button>
+<button onclick="nyt()">pruebaNYT</button>
+
+-->

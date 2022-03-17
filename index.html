@@ -13,11 +13,35 @@
 
 <body>
   <header>
-    <img src="./media/hostoak2.png" alt="We are open!!">
-
+    <img src="./media/openlogo.png" alt="open">
+    <img src="./media/The-New-York-Times-Logo.png" alt="We are open!!">
   </header>
-  <nav>
-    <button class="btn-material" onclick="deituAPI()">Execute</button>
+<!--  <nav id="navIndex">
+    <button onclick="location.href='login.html', target='_blank'">Login</button>
+    <label for="login">Login:  </label>
+    <input type="text">
+    <img src="./media/btGoogle.png" alt="btGoogle" id="btGoogle">
+  </nav>-->
+  <main>
+    <section id="cajaPadre">
+      <img src="./media/waiting-spinning.gif" alt="Waiting....." id="itxaroten">
+    </section>
+  </main>
+  <footer>
+    <div>
+      <p>Gaizka-k egindakoa!!</p>
+    </div>
+  </footer>
+  <script src="./js/config.js"></script>
+  <script src="./js/orokorra.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+</html>
+
+<!--***********************************
+<nav>
+  <button class="btn-material" onclick="deituAPI()">Execute</button>
     <button class="btn-3d" onclick="sortuArticle()">Crear Lista</button>
     <button class="btn-bootstrap" onclick="apiHardcover()">sports</button>
     <button onclick="asignaBoton()">Asignar</button>
@@ -26,17 +50,29 @@
     <button type="button" src="./media/amazontxiki.png" height = "100%" width = "auto" ></button>
     <button type="button"><img src="./media/amzonlogotxikia.png" height="auto" width="100%"> </button>
     <a href="./libros.html">Abrir libros</a>
-  </nav>
-  <main>
-    <section id="cajaPadre">
-      <!--<img src="./media/waiting-spinning.gif" alt="Zabalik" id="itxaroten">-->
-      <img src="./media/sickboy.gif" alt="Zabalik" id="itxaroten">
+</nav>
+<a href="/index.htm" target="_top" onClick="window.open(this.href, this.target, 'width=300,height=400')";return false>login</a>
+********************************************/
 
-    </section>
-  </main>
-  <footer>
-  </footer>
-  <script src="./js/config.js"></script>
-  <script src="./js/script.js"></script>
-</body>
-</html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDHfqDozYfjfCXiLJk1ZPLiFNCxm9xC7EQ",
+      authDomain: "library-96dcd.firebaseapp.com",
+      projectId: "library-96dcd",
+      storageBucket: "library-96dcd.appspot.com",
+      messagingSenderId: "944676660580",
+      appId: "1:944676660580:web:85f845b95fb85da35ec671"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+
+
+-->

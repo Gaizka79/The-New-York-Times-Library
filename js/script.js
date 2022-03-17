@@ -1,24 +1,55 @@
-let myKey = config.MY_KEY;
+/*let myKey = config.MY_KEY;  //NYT
+let myFbApiKey = configFirebase.MY_apiKey;
+let myFbAuthDomain = configFirebase.MY_authDomain;
+let myFbProjectId = configFirebase.MY_projectId;
+let myFbStorageBucket = configFirebase.MY_storageBucket;
+let myFbMessagingSenderId = configFirebase.MY_messagingSenderId;
+let myAppId = configFirebase.MY_appId;*/
 let arrGeneros = [];
 let arrLibros = [];
 let arrPruebas = [];
+let arrLocalStorage1 = [];
 let sBtExplore;
-let sAbierto;
+let sItxaron = document.getElementById("itxaroten");
+let sSection = document.getElementsByTagName('section');
 
+
+// Import the functions you need from the SDKs you need
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+/*  OROKORRA
+const firebaseConfig = {
+    apiKey: myFbApiKey,
+    authDomain: myFbAuthDomain,
+    projectId: myFbProjectId,
+    storageBucket: myFbStorageBucket,
+    messagingSenderId: myFbMessagingSenderId,
+    appId: myAppId
+};
+// Initialize Firebase
+//const app = initializeApp(firebaseConfig);
+------------------------------------------------ */
+localStorage.clear();
 function itxaron(){
     return new Promise(function(resolve){
         console.log("itxaroten ari naiz " + Date());
-        setTimeout(resolve,4000);
+        setTimeout(resolve,3000);
     });
 };
 function waitingBai(){
-    sAbierto = document.getElementById("itxaroten");
-    sAbierto.style.visibility = "visible";
-    sAbierto.style.display = "block";
+    document.body.style = "cursor: wait";
+    
+    sSection.clear;
+    sItxaron.style.visibility = "visible";
+    sItxaron.style.display = "block";
 };
 function waitingEz(){
-    sAbierto.style.visibility = "hidden";
-    sAbierto.style.display = "none";
+    sItxaron.style.visibility = "hidden";
+    sItxaron.style.display = "none";
+    document.body.style = "cursor: default";
 };
 async function deituAPI(){
     waitingBai();
@@ -27,9 +58,6 @@ async function deituAPI(){
         let response = await fetch('https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=' + myKey)
         let data = await response.json();
         arrGeneros = data;
-        //myChart.data.datasets[0].data.push(temp, tempSens, tempMin, tempMax);
-        //console.log(data);
-        //console.log(arrGeneros);
     } catch (error) {
         console.log("Ha ocurrido un error: " + error);
         alert(error);
@@ -83,11 +111,10 @@ function asignaBoton (){
 };
 async function loadLiburak(genero){
     //alert(genero);
-    waitingBai();
-    itxaron();
+    //waitingBai();
+    //itxaron();
     try {
         let response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${genero}.json?api-key=` + myKey)
-        //let response = await fetch("https://api.nytimes.com/svc/books/v3/lists.json?list=Manga&api-key=" + myKey)
         let data = await response.json();
         //myChart.data.datasets[0].data.push(temp, tempSens, tempMin, tempMax);
         arrPruebas = data.results.books;
@@ -97,12 +124,13 @@ async function loadLiburak(genero){
         console.log("Ha ocurrido un error: " + error);
         alert(error);
     } finally{
-        waitingEz();
+        //waitingEz();
     };
+    localStorage.setItem("resultado", genero);
     window.open("libros.html", "_self");
 }
 
-
+//CREO KE SOBRA
 async function sacaLibros(genero){
     try {
         let response = await fetch(`https://api.nytimes.com/svc/books/v3/lists.json?list=${genero}&api-key=` + myKey)

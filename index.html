@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca</title>
+  
+  <link rel="shortcut icon" href="./media/favicon.ico" />
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/botoiak.css">
@@ -16,12 +18,23 @@
     <img src="./media/openlogo.png" alt="open">
     <img src="./media/The-New-York-Times-Logo.png" alt="We are open!!">
   </header>
-<!--  <nav id="navIndex">
-    <button onclick="location.href='login.html', target='_blank'">Login</button>
-    <label for="login">Login:  </label>
-    <input type="text">
-    <img src="./media/btGoogle.png" alt="btGoogle" id="btGoogle">
-  </nav>-->
+  <nav id="navIndex">
+    <div id="navIndexHijo">
+      <label for="email">Email:  </label>
+      <input type="text" id="email" placeholder="Introduce tu email...">
+      <label for="password">Password: </label>
+      <input type="password" id="password" placeholder="Pasword...">
+      <button id="btLoginRegistrado">Usuario registrado</button>
+      <button id="btLoginNuevo">Usuario nuevo</button>
+      <img src="./media/btGoogle.png" alt="btGoogle" id="btGoogle">
+      <button onclick="window.open('favoritos.html', '_self')" id="goBack"class="btn-bootstrap">FavoritoS</button>
+      
+    </div>
+    <button id="itxiSaioa">Itxi Saio</button>
+    <button id="NorDago">Ver registrados</button>
+    <button id="btUserIN">userIN</button>
+    <p id="userIN">kaixo</p>
+  </nav>
   <main>
     <section id="cajaPadre">
       <img src="./media/waiting-spinning.gif" alt="Waiting....." id="itxaroten">
@@ -32,47 +45,11 @@
       <p>Gaizka-k egindakoa!!</p>
     </div>
   </footer>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
   <script src="./js/config.js"></script>
   <script src="./js/orokorra.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js"></script>
-  <script src="./js/script.js"></script>
+  <script type="module" src="./js/script.js"></script>
 </body>
 </html>
-
-<!--***********************************
-<nav>
-  <button class="btn-material" onclick="deituAPI()">Execute</button>
-    <button class="btn-3d" onclick="sortuArticle()">Crear Lista</button>
-    <button class="btn-bootstrap" onclick="apiHardcover()">sports</button>
-    <button onclick="asignaBoton()">Asignar</button>
-    <button onclick="window.open('libros.html'), '_self'">limpiar</button>
-    <button onclick="href =(libros.html)">abrir libros.html</button>
-    <button type="button" src="./media/amazontxiki.png" height = "100%" width = "auto" ></button>
-    <button type="button"><img src="./media/amzonlogotxikia.png" height="auto" width="100%"> </button>
-    <a href="./libros.html">Abrir libros</a>
-</nav>
-<a href="/index.htm" target="_top" onClick="window.open(this.href, this.target, 'width=300,height=400')";return false>login</a>
-********************************************/
-
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDHfqDozYfjfCXiLJk1ZPLiFNCxm9xC7EQ",
-      authDomain: "library-96dcd.firebaseapp.com",
-      projectId: "library-96dcd",
-      storageBucket: "library-96dcd.appspot.com",
-      messagingSenderId: "944676660580",
-      appId: "1:944676660580:web:85f845b95fb85da35ec671"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-  </script>
-
-
--->

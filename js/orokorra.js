@@ -1,18 +1,12 @@
 let myKey = config.MY_KEY;  //NYT
-let myFbApiKey = configFirebase.MY_apiKey;
-let myFbAuthDomain = configFirebase.MY_authDomain;
-let myFbProjectId = configFirebase.MY_projectId;
-let myFbStorageBucket = configFirebase.MY_storageBucket;
-let myFbMessagingSenderId = configFirebase.MY_messagingSenderId;
-let myAppId = configFirebase.MY_appId;
+const firebaseConfig = {
+    apiKey: config.MY_Fb_API_KEY,
+    authDomain: "library-da1cd.firebaseapp.com",
+    projectId: "library-da1cd",
+    storageBucket: "library-da1cd.appspot.com",
+    messagingSenderId: "781486562828",
+    appId: config.MY_Fb_APP_ID
+};
 
-/*const firebaseConfig = {
-    apiKey: myFbApiKey,
-    authDomain: myFbAuthDomain,
-    projectId: myFbProjectId,
-    storageBucket: myFbStorageBucket,
-    messagingSenderId: myFbMessagingSenderId,
-    appId: myAppId
-};*/
-// Initialize Firebase
-//const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();

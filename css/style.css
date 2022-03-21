@@ -4,6 +4,9 @@
     font-style: normal;
     font-weight: normal;
 }
+*{
+    box-sizing: border-box;
+}
 html{
     background-color: #ade8f4;
 }
@@ -103,15 +106,20 @@ footer{
     justify-content: space-around;
 }
 .imgLibros{
+   max-width: 90%;
+    height: 50%;
+    /*
     max-width: 90%;
-    height: auto;
+    height: auto;*/
     margin: 5%;
     align-self: center;
 }
 .clsLibros{
     flex: 1 20%;
+    display: flex;
     /*text-align: center;*/
     flex-direction: column;
+    
     border-style:double;
     border-radius: 0.5em;
     max-width: 20%;

@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'GreatVibes-Regular';
+    src: ('../media/GreatVibes-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+html{
+    background-color: #ade8f4;
+}
+header, footer{
+    background-color: #90e0ef;
+    display: flex;
+}
+#cajaLogin{
+    background-color: pink;
+    display:inline-block;
+    border-width: 0.2em;
+    border-style:groove;
+    align-self: center;
+    margin: 10%;
+
+}

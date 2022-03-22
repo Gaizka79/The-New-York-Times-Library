@@ -1,4 +1,3 @@
-let myKey = config.MY_KEY;  //NYT 
 const firebaseConfig = {
     apiKey: config.MY_Fb_API_KEY,
     authDomain: "library-da1cd.firebaseapp.com",
@@ -10,32 +9,32 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+let user = firebase.auth().currentUser;
 
-async function getFavoritos (){
-    let user =await firebase.auth().currentUser;
-    console.log("ok: " + user.email);
-    if (user){
+document.getElementById("btDibuja").addEventListener('click', () => {
+    let user = firebase.auth().currentUser;
+    document.getElementById('lblConectado').innerHTML= user.email;
+    if (user) {
+        //alert(user.email);
         console.log(user.email);
         db.collection("favoritos")
         .where("name", "==", user.email)
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                pintaFavo(doc.data().libro);
-                console.log(doc.id + " xXx " + doc.data);
-                console.log(doc.id, " => ", doc.data);
-                docId = doc.id;
+                console.log(doc.data().libro);
+                let arrTemp = doc.data().libro;
+                pintaFavo(arrTemp);
             })
+            
         })
         .catch((error) => {
-            console.log("Usuario no encontrado" + error);
+            console.log(error);
         });
-    };
-};
-getFavoritos();
-
+    }
+});
 function pintaFavo(gogokoenak){
-    let elemSection = document.getElementById('cajaMadre');    
+    let elemSection = document.getElementById('cajaFavoritos');    
     let artBerria, rankBerria, nomBerria, weeksBerria, descBerria, urlBerria, imgBerria, btBerria, btFav;
 
     artBerria = document.createElement('article');
@@ -69,13 +68,4 @@ function pintaFavo(gogokoenak){
     btBerria.name = "btAmazon";
     artBerria.appendChild(btBerria).innerHTML = gogokoenak.amazon_product_url;
     btBerria.textContent = "Amazon!"
-
-    btFav = document.createElement('button');
-    btFav.className = "btn-bootstrap";
-    btFav.id = gogokoenak.title;
-    btFav.name = "btFavoritos";
-    btFav.textContent = "Favoritos";
-    artBerria.appendChild(btFav);
-
 };
-

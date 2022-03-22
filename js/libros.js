@@ -1,17 +1,26 @@
+let myKey = config.MY_KEY;  //NYT
+
+const firebaseConfig = {
+    apiKey: config.MY_Fb_API_KEY,
+    authDomain: "library-da1cd.firebaseapp.com",
+    projectId: "library-da1cd",
+    storageBucket: "library-da1cd.appspot.com",
+    messagingSenderId: "781486562828",
+    appId: config.MY_Fb_APP_ID
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 //ver usuarios registrados
 document.getElementById('btConectado').addEventListener('click', () => {
     let user = firebase.auth().currentUser;
-        if (user) {
-            console.log(user.email + " " + user.uid);
-            document.getElementById('lblConectado').innerHTML= user.email + " " + user.id;
-            //konektatuta(user.email, user.uid);
-
-        } else {
-            console.log("Ez dago inor");
-        // User is signed out
-        // ...
-        }
-
+    if (user) {
+        console.log(user.email + " " + user.uid);
+        document.getElementById('lblConectado').innerHTML="Usuario: " + user.email;
+        //konektatuta(user.email, user.uid);
+    } else {
+        console.log("Ez dago inor");
+    }
 });
 
 async function buscaLibros(buscaTemp){
@@ -19,15 +28,13 @@ async function buscaLibros(buscaTemp){
         let response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${buscaTemp}.json?api-key=` + myKey)
         let data = await response.json();
         arrPruebas = data.results.books;
-        console.log(data);
-        console.log(arrPruebas);
     } catch (error) {
         console.log("Ha ocurrido un error: " + error);
         alert(error);
     };
     sortuLiburuak();
 };
-async function sortuLiburuak(){
+function sortuLiburuak(){
     let elemSection = document.getElementById('cajaMadre');    
     let artBerria, rankBerria, nomBerria, weeksBerria, descBerria, urlBerria, imgBerria, btBerria, btFav;
 
@@ -60,7 +67,6 @@ async function sortuLiburuak(){
 
         btBerria = document.createElement('button');
         btBerria.className = "btn-bootstrap";
-        //btBerria.id = arrPruebas[i].list_name;
         btBerria.name = "btAmazon";
         artBerria.appendChild(btBerria).innerHTML = arrPruebas[i].amazon_product_url;
         btBerria.textContent = "Amazon!"
@@ -91,41 +97,33 @@ function asignaBotonAmazon (){
         })
     };
 };
-let busca = localStorage.getItem("resultado");
-buscaLibros(busca);
-
 function favoritos(indice){
     let user = firebase.auth().currentUser;
-    //let docId;
     let temp = JSON.parse(localStorage.getItem("libros"));
     console.log(temp[indice]);
-    //console.log(JSON.parse(localStorage.getItem("libros"[libroFav])));
     if (user) {
-        localStorage.setItem("loged", user.email);
+        /////////localStorage.setItem("loged", user);
         console.log(user.email + " " + user.uid);
-        document.getElementById('lblConectado').innerHTML= user.email + " " + user.id;        
+        document.getElementById('lblConectado').innerHTML= "Usuario: " + user.email;        
         db.collection("favoritos").add({
             name: user.email,
             libro: temp[indice]
         })
-        
         .then((docref) => {
-            console.log("okokokok");
+            console.log("ok: " + docref);
         })
         .catch((error) =>{
-            console.log("mekaguen la puta" + error);
+            console.log("Error: " + error);
         });
-
     } else {
         console.log("Ez dago inor");
         alert("Tienes ke iniciar sesión");
-    // User is signed out
-    // ...
     };
-    //alert("Estamos en favoritos con: " + libroFav + " con: " + user.email + " " + user.uid);
-
 };
-document.getElementById('tempfavo').addEventListener('click', function abre(){
+
+document.getElementById('tempfavo').addEventListener('click', () => {
     window.open("favoritos.html", "_self");
 });
 
+let busca = localStorage.getItem("resultado");
+buscaLibros(busca);

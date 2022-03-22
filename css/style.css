@@ -102,24 +102,18 @@ footer{
     background-color: #ade8f4;
     display: flex;
     flex-flow: row wrap;
-    /*flex-wrap: wrap;*/
     justify-content: space-around;
 }
 .imgLibros{
    max-width: 90%;
     height: 50%;
-    /*
-    max-width: 90%;
-    height: auto;*/
     margin: 5%;
     align-self: center;
 }
 .clsLibros{
     flex: 1 20%;
     display: flex;
-    /*text-align: center;*/
     flex-direction: column;
-    
     border-style:double;
     border-radius: 0.5em;
     max-width: 20%;
@@ -136,6 +130,13 @@ footer{
     cursor:pointer;
 }
 
+/********* FAVORITOS ***************/
+#cajaFavoritos{
+    background-color: #ade8f4;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
 
 /*********** RESPONSIVE *****************
 /Mugikorra                             */
@@ -153,7 +154,6 @@ footer{
         overflow: hidden;
     }
 }
-
 /* Tablet */
 @media only screen and (min-width:600px) and (max-width:990px) {
     article{
@@ -161,5 +161,3 @@ footer{
         max-width: 45%;
     }
 }
-
-

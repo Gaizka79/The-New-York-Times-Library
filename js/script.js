@@ -20,17 +20,16 @@ const firebaseConfig = {
     messagingSenderId: "781486562828",
     appId: config.MY_Fb_APP_ID
 };
-
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 //Crear usuario
-const createUser = (user) => {
-    db.collection("users")
+/*const createUser = (user) => {
+    db.collection("favoritos")//users
         .add(user)
         .then((docRef) => console.log("Document written with ID: ", docRef.id))
         .catch((error) => console.error("Error adding document: ", error));
-};
+};*/
 
 sBtLoginNuevo.addEventListener('click', () => {
     console.log("Empezamos el alta");
@@ -40,12 +39,14 @@ sBtLoginNuevo.addEventListener('click', () => {
     .then((userCredential) => {
         let user = userCredential.user;
         console.log("te damos de alta");
-        konektatuta(user.email, user.uid);
-        createUser({
+        console.log("user: " + user);
+        document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
+        //konektatuta(user.email, user.uid);
+        /*createUser({
             email: sEmail.value,
             password: sPassword.value,
             msg: "ke pasa wey"
-        })
+        })*/
         // ..
     })
     .catch((error) => {
@@ -55,31 +56,23 @@ sBtLoginNuevo.addEventListener('click', () => {
         // ..
     });
 });
-//Hacer login de usuario registrado
-const addUser = (user) => {
-    db.collection("users")
-      .add(user)
-      .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch((error) => console.error("Error adding document: ", error));
-  };
 
+//Hacer login de usuario registrado
 sBtLoginRegistrado.addEventListener("click", () => {
     firebase.auth().signInWithEmailAndPassword(sEmail.value, sPassword.value)
     .then((userCredential) => {
         // Signed in
         let user = userCredential.user;
         console.log(`Se ha logado ${user.email} ID:${user.uid}`)
-        alert(`Se ha logado ${user.email} ID:${user.uid} correctamente`);
-        konektatuta(user.email, user.uid);
+        alert(`Se ha logado a: ${user.email} correctamente`);
+        document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
+        //konektatuta(user.email, user.uid);
     })
     .catch((error) => {
         let errorCode = error.code;
         let errorMessage = error.message;
-        console.log(errorCode)
-        console.log(errorMessage)
-        alert(errorMessage);
+        alert("Ha ocurrido el error: " + errorCode +
+            " " + errorMessage);
     });
 });
 //Login con google
@@ -88,18 +81,16 @@ sBtGoogle.addEventListener('click', async () => {
     await firebase.auth().signInWithPopup(provider)
     .then((result) => {
         console.log(result);
-        konektatuta(user.email, user.uid);
-        
+        //konektatuta(user.email, user.uid);
         //@type {firebase.auth.OAuthCredential} 
         let credential = result.credential;
-        
+        document.getElementById('lblConect').innerHTML="Usuario: " + result.user.email;
         console.log("Google ok");
+        //document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
         // This gives you a Google Access Token. You can use it to access the Google API.
         let token = credential.accessToken;
         // The signed-in user info.
         let user = result.user;
-        
-        // ...
     }).catch((error) => {
         console.log("Google error");
         // Handle Errors here.
@@ -109,61 +100,15 @@ sBtGoogle.addEventListener('click', async () => {
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
-        console.log(error.code + " " + errorMessage + "&&" + error.credential);
-        
+        console.log("Error: " + errorCode + " " + errorMessage + " " + credential);
   });
-
 });
-//ver usuarios registrados
-/*
-document.getElementById('NorDago').addEventListener('click', () => {
-    let user = firebase.auth().currentUser;
-        if (user) {
-            console.log(user.email + " " + user.id);
-            konektatuta(user.email, user.uid);
-   
-        } else {
-            console.log("Ez dago inor");
 
-        }
-
-});*/
-
-const createDocument = (user) => {
-    db.document("users")
-    .add(user)
-    .then((docRef) => console.log("Document written with ID: ", docRef.id))
-    .catch((error) => console.error("Error adding document: ", error));
-};
-
-//Logout
-/*
-document.getElementById('itxiSaioa').addEventListener('click', () => {
-    firebase.auth().signOut().then(() => {
-        console.log("Ta luegiiiiii");
-        konektatuta("inor ez", "");
-      }).catch((error) => {
-          alert("Failllllll");
-          alert(error);
-        // An error happened.
-      });
-});*/
-function logOut(){
-    firebase.auth().signOut().then(() => {
-        console.log("Ta luegiiiiii");
-        konektatuta("inor ez", "");
-      }).catch((error) => {
-          alert("Failllllll");
-          alert(error);
-        // An error happened.
-    });
-}
 
 let sUserIN = document.getElementById('userIN');
 function konektatuta (izena, id){
     sUserIN.innerText = izena;
     localStorage.setItem("konektado", id);
-
 };
 
 function itxaron(){
@@ -259,8 +204,16 @@ async function loadLiburak(genero){
     localStorage.setItem("resultado", genero);
     window.open("libros.html", "_self");
 }
+deituAPI();
 
-async function sacaLibros(genero){
+document.getElementById('btLogOut').addEventListener('click', () => {
+    firebase.auth().signOut();
+    console.log("Loged out!");
+    document.getElementById('lblConect').innerHTML="Sin usuarios activos";
+});
+
+
+/*async function sacaLibros(genero){
     try {
         let response = await fetch(`https://api.nytimes.com/svc/books/v3/lists.json?list=${genero}&api-key=` + myKey)
         let data = await response.json();
@@ -268,8 +221,47 @@ async function sacaLibros(genero){
         arrLibros = data;
         console.log(data);
     } catch (error) {
-        console.log("Ha ocurrido un JODIDO error: " + error);
+        console.log("Ha ocurrido un error: " + error);
         alert(error);
     };
-};
-deituAPI();
+};*/
+
+
+//ver usuarios registrados
+/*
+document.getElementById('NorDago').addEventListener('click', () => {
+    let user = firebase.auth().currentUser;
+        if (user) {
+            console.log(user.email + " " + user.id);
+            konektatuta(user.email, user.uid);
+   
+        } else {
+            console.log("Ez dago inor");
+
+        }
+
+});*/
+
+
+
+//Logout
+/*
+document.getElementById('itxiSaioa').addEventListener('click', () => {
+    firebase.auth().signOut().then(() => {
+        console.log("Ta luegiiiiii");
+        konektatuta("inor ez", "");
+      }).catch((error) => {
+          alert("Failllllll");
+          alert(error);
+        // An error happened.
+      });
+});
+function logOut(){
+    firebase.auth().signOut().then(() => {
+        console.log("Ta luegiiiiii");
+        //konektatuta("inor ez", "");
+      }).catch((error) => {
+          alert("Failllllll");
+          alert(error);
+    });
+}*/

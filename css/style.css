@@ -93,6 +93,9 @@ footer{
     align-self:flex-end;
     text-align: center;
 }
+footer > p:hover{
+    color: red;
+}
 
 /***************************************************\
  *               BIGARREN HORRIALDEA                *
@@ -142,16 +145,62 @@ footer{
 /Mugikorra                             */
 @media only screen and (max-width:600px) {
     article{
+        /*flex: 1 25%;*/
         flex: 1 25%;
         text-align: center;
         flex-direction: column;
         border-style:double;
         border-radius: 0.5em;
+        /*max-width: 45%;*/
         max-width: 45%;
         margin: 1em;
         box-shadow: 5px 5px 10px;
         word-wrap: break-word;
         overflow: hidden;
+    }
+
+    .clsFichas{
+        /*flex: 1 20%;*/
+        flex: 1 80%;
+        text-align: center;
+        flex-direction: column;
+        border-style:double;
+        border-radius: 0.5em;
+        max-width: 60%;
+        margin: 1em;
+        background-color: #99d98c;
+        box-shadow: 5px 5px 10px;
+        word-wrap: break-word;
+        overflow: hidden;
+        background-color: wheat;
+    }
+    .clsLibros{
+        flex: 1 80%;
+        display: flex;
+        flex-direction: column;
+        border-style:double;
+        border-radius: 0.5em;
+        max-width: 60%;
+        margin: 1em;
+        background-color: #99d98c;
+        box-shadow: 5px 5px 10px;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+    nav{
+        display:flex;
+        align-items: baseline;
+        flex-wrap: wrap-reverse;
+        justify-content:space-around;
+        background-color: #90e0ef;
+    }
+    #navIndexHijo{
+        border-radius: 0.5em;
+        max-width: 100%;
+        margin: 1em;
+        background-color: #99d98c;
+     
+
     }
 }
 /* Tablet */
@@ -159,5 +208,33 @@ footer{
     article{
         flex: 1 25%;
         max-width: 45%;
+    }
+    .clsFichas{
+        /*flex: 1 20%;*/
+        flex: 1 80%;
+        text-align: center;
+        flex-direction: column;
+        border-style:double;
+        border-radius: 0.5em;
+        max-width: 60%;
+        margin: 1em;
+        background-color: #99d98c;
+        box-shadow: 5px 5px 10px;
+        word-wrap: break-word;
+        overflow: hidden;
+        background-color: wheat;
+    }
+    .clsLibros{
+        flex: 1 30%;
+        display: flex;
+        flex-direction: column;
+        border-style:double;
+        border-radius: 0.5em;
+        max-width: 30%;
+        margin: 1em;
+        background-color: #99d98c;
+        box-shadow: 5px 5px 10px;
+        word-wrap: break-word;
+        overflow: hidden;
     }
 }

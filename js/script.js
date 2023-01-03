@@ -1,4 +1,5 @@
-let myKey = config.MY_KEY;  //NYT
+//let myKey = config.MY_KEY;  //NYT
+let myKey = 'R2R5OEtmCsXRuTaPQ8M9WYRzRfo7UCM2';
 let arrGeneros = [];
 let arrLibros = [];
 let arrPruebas = [];
@@ -11,7 +12,7 @@ let sPassword = document.getElementById('password');
 let sBtLoginRegistrado = document.getElementById('btLoginRegistrado');
 let sBtLoginNuevo = document.getElementById('btLoginNuevo');
 let sBtGoogle = document.getElementById('btGoogle');
-
+/* 
 const firebaseConfig = {
     apiKey: config.MY_Fb_API_KEY,
     authDomain: "library-da1cd.firebaseapp.com",
@@ -22,7 +23,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-
+ */
 //Crear usuario
 /*const createUser = (user) => {
     db.collection("favoritos")//users
@@ -30,7 +31,7 @@ const db = firebase.firestore();
         .then((docRef) => console.log("Document written with ID: ", docRef.id))
         .catch((error) => console.error("Error adding document: ", error));
 };*/
-
+/* 
 sBtLoginNuevo.addEventListener('click', () => {
     console.log("Empezamos el alta");
     firebase
@@ -46,7 +47,7 @@ sBtLoginNuevo.addEventListener('click', () => {
             email: sEmail.value,
             password: sPassword.value,
             msg: "ke pasa wey"
-        })*/
+        })
         // ..
     })
     .catch((error) => {
@@ -102,7 +103,7 @@ sBtGoogle.addEventListener('click', async () => {
         var credential = error.credential;
         console.log("Error: " + errorCode + " " + errorMessage + " " + credential);
   });
-});
+}); */
 
 
 let sUserIN = document.getElementById('userIN');
@@ -206,11 +207,11 @@ async function loadLiburak(genero){
 }
 deituAPI();
 
-document.getElementById('btLogOut').addEventListener('click', () => {
+/* document.getElementById('btLogOut').addEventListener('click', () => {
     firebase.auth().signOut();
     console.log("Loged out!");
     document.getElementById('lblConect').innerHTML="Sin usuarios activos";
-});
+}); */
 
 
 /*async function sacaLibros(genero){

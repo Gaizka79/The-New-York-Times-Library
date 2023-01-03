@@ -8,10 +8,12 @@
     box-sizing: border-box;
 }
 html{
-    background-color: #ade8f4;
+    /* background-color: #ade8f4; */
+    background-color: #90E0EF;
 }
 header, footer{
-    background-color: #90e0ef;
+    /* background-color: #90e0ef; */
+    background-color: #00B4D8;
     display: flex;
 }
 header > img{
@@ -43,7 +45,7 @@ nav{
     background-color: #90e0ef;
 }
 #cajaPadre{
-    background-color: #ade8f4;
+    background-color: #90E0EF;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -63,14 +65,14 @@ nav{
     border-radius: 0.5em;
     max-width: 20%;
     margin: 1em;
-    background-color: #99d98c;
+    /* background-color: #99d98c; */
     box-shadow: 5px 5px 10px;
     word-wrap: break-word;
     overflow: hidden;
-    background-color: wheat;
+    background-color: #CAF0F8;
 }
 article:hover, article:focus{
-    background-color: #43aa8b;
+    background-color: #00B4D8;
 }
 p, button{
     margin: 1em;
@@ -121,7 +123,8 @@ footer > p:hover{
     border-radius: 0.5em;
     max-width: 20%;
     margin: 1em;
-    background-color: #99d98c;
+    /* background-color: #99d98c; */
+    background-color: #CAF0F8;
     box-shadow: 5px 5px 10px;
     word-wrap: break-word;
     overflow: hidden;
@@ -172,7 +175,8 @@ footer > p:hover{
         box-shadow: 5px 5px 10px;
         word-wrap: break-word;
         overflow: hidden;
-        background-color: wheat;
+        /* background-color: wheat; */
+        background-color: #CAF0F8;
     }
     .clsLibros{
         flex: 1 80%;
@@ -182,7 +186,8 @@ footer > p:hover{
         border-radius: 0.5em;
         max-width: 60%;
         margin: 1em;
-        background-color: #99d98c;
+        /* background-color: #99d98c; */
+        background-color: #CAF0F8;
         box-shadow: 5px 5px 10px;
         word-wrap: break-word;
         overflow: hidden;
@@ -222,7 +227,7 @@ footer > p:hover{
         box-shadow: 5px 5px 10px;
         word-wrap: break-word;
         overflow: hidden;
-        background-color: wheat;
+        background-color: #CAF0F8;
     }
     .clsLibros{
         flex: 1 30%;
@@ -232,7 +237,8 @@ footer > p:hover{
         border-radius: 0.5em;
         max-width: 30%;
         margin: 1em;
-        background-color: #99d98c;
+        /* background-color: #99d98c; */
+        background-color: #CAF0F8;
         box-shadow: 5px 5px 10px;
         word-wrap: break-word;
         overflow: hidden;

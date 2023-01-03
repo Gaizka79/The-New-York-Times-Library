@@ -1,30 +1,4 @@
-/* import config from './config';
-
-let myKey = config.MY_KEY;  //NYT
-
-const firebaseConfig = {
-    apiKey: config.MY_Fb_API_KEY,
-    authDomain: "library-da1cd.firebaseapp.com",
-    projectId: "library-da1cd",
-    storageBucket: "library-da1cd.appspot.com",
-    messagingSenderId: "781486562828",
-    appId: config.MY_Fb_APP_ID
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-//ver usuarios registrados
-document.getElementById('btConectado').addEventListener('click', () => {
-    let user = firebase.auth().currentUser;
-    if (user) {
-        console.log(user.email + " " + user.uid);
-        document.getElementById('lblConectado').innerHTML="Usuario: " + user.email;
-        //konektatuta(user.email, user.uid);
-    } else {
-        console.log("Ez dago inor");
-    }
-});
- */
+let myKey = "R2R5OEtmCsXRuTaPQ8M9WYRzRfo7UCM2"
 async function buscaLibros(buscaTemp){
     try {
         let response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${buscaTemp}.json?api-key=` + myKey)
@@ -99,6 +73,9 @@ function asignaBotonAmazon (){
         })
     };
 };
+let busca = localStorage.getItem("resultado");
+buscaLibros(busca);
+/*
 function favoritos(indice){
     let user = firebase.auth().currentUser;
     let temp = JSON.parse(localStorage.getItem("libros"));
@@ -123,9 +100,36 @@ function favoritos(indice){
     };
 };
 
-document.getElementById('tempfavo').addEventListener('click', () => {
+ document.getElementById('tempfavo').addEventListener('click', () => {
     window.open("favoritos.html", "_self");
-});
+}); */
 
-let busca = localStorage.getItem("resultado");
-buscaLibros(busca);
+
+
+/* import config from './config';
+
+let myKey = config.MY_KEY;  //NYT
+
+const firebaseConfig = {
+    apiKey: config.MY_Fb_API_KEY,
+    authDomain: "library-da1cd.firebaseapp.com",
+    projectId: "library-da1cd",
+    storageBucket: "library-da1cd.appspot.com",
+    messagingSenderId: "781486562828",
+    appId: config.MY_Fb_APP_ID
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+//ver usuarios registrados
+document.getElementById('btConectado').addEventListener('click', () => {
+    let user = firebase.auth().currentUser;
+    if (user) {
+        console.log(user.email + " " + user.uid);
+        document.getElementById('lblConectado').innerHTML="Usuario: " + user.email;
+        //konektatuta(user.email, user.uid);
+    } else {
+        console.log("Ez dago inor");
+    }
+});
+ */

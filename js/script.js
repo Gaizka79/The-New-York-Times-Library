@@ -12,98 +12,6 @@ let sPassword = document.getElementById('password');
 let sBtLoginRegistrado = document.getElementById('btLoginRegistrado');
 let sBtLoginNuevo = document.getElementById('btLoginNuevo');
 let sBtGoogle = document.getElementById('btGoogle');
-/* 
-const firebaseConfig = {
-    apiKey: config.MY_Fb_API_KEY,
-    authDomain: "library-da1cd.firebaseapp.com",
-    projectId: "library-da1cd",
-    storageBucket: "library-da1cd.appspot.com",
-    messagingSenderId: "781486562828",
-    appId: config.MY_Fb_APP_ID
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
- */
-//Crear usuario
-/*const createUser = (user) => {
-    db.collection("favoritos")//users
-        .add(user)
-        .then((docRef) => console.log("Document written with ID: ", docRef.id))
-        .catch((error) => console.error("Error adding document: ", error));
-};*/
-/* 
-sBtLoginNuevo.addEventListener('click', () => {
-    console.log("Empezamos el alta");
-    firebase
-    .auth()
-    .createUserWithEmailAndPassword(sEmail.value, sPassword.value)
-    .then((userCredential) => {
-        let user = userCredential.user;
-        console.log("te damos de alta");
-        console.log("user: " + user);
-        document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
-        //konektatuta(user.email, user.uid);
-        /*createUser({
-            email: sEmail.value,
-            password: sPassword.value,
-            msg: "ke pasa wey"
-        })
-        // ..
-    })
-    .catch((error) => {
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        alert(errorCode + ": " + errorMessage);
-        // ..
-    });
-});
-
-//Hacer login de usuario registrado
-sBtLoginRegistrado.addEventListener("click", () => {
-    firebase.auth().signInWithEmailAndPassword(sEmail.value, sPassword.value)
-    .then((userCredential) => {
-        // Signed in
-        let user = userCredential.user;
-        console.log(`Se ha logado ${user.email} ID:${user.uid}`)
-        alert(`Se ha logado a: ${user.email} correctamente`);
-        document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
-        //konektatuta(user.email, user.uid);
-    })
-    .catch((error) => {
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        alert("Ha ocurrido el error: " + errorCode +
-            " " + errorMessage);
-    });
-});
-//Login con google
-sBtGoogle.addEventListener('click', async () => {
-    let provider = new firebase.auth.GoogleAuthProvider();
-    await firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-        console.log(result);
-        //konektatuta(user.email, user.uid);
-        //@type {firebase.auth.OAuthCredential} 
-        let credential = result.credential;
-        document.getElementById('lblConect').innerHTML="Usuario: " + result.user.email;
-        console.log("Google ok");
-        //document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        let token = credential.accessToken;
-        // The signed-in user info.
-        let user = result.user;
-    }).catch((error) => {
-        console.log("Google error");
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        console.log("Error: " + errorCode + " " + errorMessage + " " + credential);
-  });
-}); */
 
 
 let sUserIN = document.getElementById('userIN');
@@ -266,3 +174,95 @@ function logOut(){
           alert(error);
     });
 }*/
+/* 
+const firebaseConfig = {
+    apiKey: config.MY_Fb_API_KEY,
+    authDomain: "library-da1cd.firebaseapp.com",
+    projectId: "library-da1cd",
+    storageBucket: "library-da1cd.appspot.com",
+    messagingSenderId: "781486562828",
+    appId: config.MY_Fb_APP_ID
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+ */
+//Crear usuario
+/*const createUser = (user) => {
+    db.collection("favoritos")//users
+        .add(user)
+        .then((docRef) => console.log("Document written with ID: ", docRef.id))
+        .catch((error) => console.error("Error adding document: ", error));
+};*/
+/* 
+sBtLoginNuevo.addEventListener('click', () => {
+    console.log("Empezamos el alta");
+    firebase
+    .auth()
+    .createUserWithEmailAndPassword(sEmail.value, sPassword.value)
+    .then((userCredential) => {
+        let user = userCredential.user;
+        console.log("te damos de alta");
+        console.log("user: " + user);
+        document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
+        //konektatuta(user.email, user.uid);
+        /*createUser({
+            email: sEmail.value,
+            password: sPassword.value,
+            msg: "ke pasa wey"
+        })
+        // ..
+    })
+    .catch((error) => {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        alert(errorCode + ": " + errorMessage);
+        // ..
+    });
+});
+
+//Hacer login de usuario registrado
+sBtLoginRegistrado.addEventListener("click", () => {
+    firebase.auth().signInWithEmailAndPassword(sEmail.value, sPassword.value)
+    .then((userCredential) => {
+        // Signed in
+        let user = userCredential.user;
+        console.log(`Se ha logado ${user.email} ID:${user.uid}`)
+        alert(`Se ha logado a: ${user.email} correctamente`);
+        document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
+        //konektatuta(user.email, user.uid);
+    })
+    .catch((error) => {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        alert("Ha ocurrido el error: " + errorCode +
+            " " + errorMessage);
+    });
+});
+//Login con google
+sBtGoogle.addEventListener('click', async () => {
+    let provider = new firebase.auth.GoogleAuthProvider();
+    await firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+        console.log(result);
+        //konektatuta(user.email, user.uid);
+        //@type {firebase.auth.OAuthCredential} 
+        let credential = result.credential;
+        document.getElementById('lblConect').innerHTML="Usuario: " + result.user.email;
+        console.log("Google ok");
+        //document.getElementById('lblConect').innerHTML="Usuario: " + user.email;
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        let token = credential.accessToken;
+        // The signed-in user info.
+        let user = result.user;
+    }).catch((error) => {
+        console.log("Google error");
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        console.log("Error: " + errorCode + " " + errorMessage + " " + credential);
+  });
+}); */

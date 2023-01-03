@@ -1,3 +1,5 @@
+/* import config from './config';
+
 let myKey = config.MY_KEY;  //NYT
 
 const firebaseConfig = {
@@ -22,7 +24,7 @@ document.getElementById('btConectado').addEventListener('click', () => {
         console.log("Ez dago inor");
     }
 });
-
+ */
 async function buscaLibros(buscaTemp){
     try {
         let response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${buscaTemp}.json?api-key=` + myKey)

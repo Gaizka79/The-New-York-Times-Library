@@ -52,7 +52,7 @@ function sortuLiburuak(){
         btFav.id = arrPruebas[i].title;
         btFav.name = "btFavoritos";
         btFav.textContent = "Favoritos";
-        artBerria.appendChild(btFav);
+        //artBerria.appendChild(btFav);
     }
     localStorage.setItem("libros", JSON.stringify(arrPruebas));
     asignaBotonAmazon();

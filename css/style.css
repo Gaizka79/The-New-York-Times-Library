@@ -147,6 +147,12 @@ footer > p:hover{
 /*********** RESPONSIVE *****************
 /Mugikorra                             */
 @media only screen and (max-width:600px) {
+    #nyt_logo{
+        display: none;
+    }
+    #open_logo{
+        width: 100%;
+    }
     article{
         /*flex: 1 25%;*/
         flex: 1 25%;
@@ -210,6 +216,12 @@ footer > p:hover{
 }
 /* Tablet */
 @media only screen and (min-width:600px) and (max-width:990px) {
+    #nyt_logo{
+        display: none;
+    }
+    #open_logo{
+        width: 100%;
+    }
     article{
         flex: 1 25%;
         max-width: 45%;
